@@ -40,8 +40,7 @@ var showLoading = function (selector) {
 // with propValue in given 'string'
 var insertProperty = function (string, propName, propValue) {
   var propToReplace = "{{" + propName + "}}";
-  string = string
-    .replace(new RegExp(propToReplace, "g"), propValue);
+  string = string.replace(new RegExp(propToReplace, "g"), propValue);
   return string;
 };
 
@@ -103,6 +102,7 @@ function buildAndShowHomeHTML (categories) {
       // variable's name implies it expects.
       // var chosenCategoryShortName = ....
       var chosenCategoryShortName = chooseRandomCategory(categories).short_name;
+      console.log(chooseRandomCategory(categories));
 
 
       // TODO: STEP 3: Substitute {{randomCategoryShortName}} in the home html snippet with the
@@ -117,7 +117,8 @@ function buildAndShowHomeHTML (categories) {
       // it into the home html snippet.
       //
       // var homeHtmlToInsertIntoMainPage = ....
-      var homeHtmlToInsertIntoMainPage = "'" + chosenCategoryShortName + "'";
+      var homeHtmlToInsertIntoMainPage = chosenCategoryShortName;
+      console.log(chosenCategoryShortName);
       var homeHtmlUrl = insertProperty(homeHtmlUrl, "randomCategoryShortName", homeHtmlToInsertIntoMainPage);
 
 
